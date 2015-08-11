@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.cesar.carservice.ShowCarActivity">
+    <item
+        android:id="@+id/action_edit_car"
+        android:title="Editar"
+        android:icon="@drawable/ic_edit"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_orderservice"
+        android:title="Editar"
+        android:icon="@drawable/ic_edit"
+        app:showAsAction="ifRoom" />
+</menu>

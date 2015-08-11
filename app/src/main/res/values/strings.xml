@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Car Service</string>
+    <string name="client_id">Car Service</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu">Menu Principal</string>
+    <string name="title_activity_list_car_owners">Clientes</string>
+    <string name="title_activity_manipulate_car_owner">Agregar Cliente</string>
+    <string name="title_activity_show_car_owner">Cliente</string>
+    <string name="title_activity_show_car">Vehiculo</string>
+    <string name="title_activity_manipulate_car">Agregar Vehiculo</string>
+    <string-array name="typeCarOwner_arrays">
+        <item>Selecciona Tipo de Cliente</item>
+        <item>Persona</item>
+        <item>Empresa</item>
+    </string-array>
+    <string name="title_activity_order_service1">Orden de Servicio</string>
+    <string name="title_activity_order_service2">OrderService2Activity</string>
+    <string name="title_activity_order_service_diagnostic">Diagnostico</string>
+    <string name="title_activity_order_service_quotes">Presupuesto</string>
+</resources>
