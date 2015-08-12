@@ -38,11 +38,15 @@ public class ListCarOwnersActivity extends ActionBarActivity {
     private static final String URL = "http://192.168.15.125/~Cesar/carservice/public/listcarowners/";
     ListView lv;
     List<CarOwner> carOwners;
+    User user;
+    int client_id = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_car_owners);
+
+        user = (User)getIntent().getExtras().get("user");
         lv = (ListView)findViewById(R.id.lvCarOwners);
         carOwners = new ArrayList<CarOwner>();
         new HttpAsyncTask().execute(URL);
@@ -51,6 +55,7 @@ public class ListCarOwnersActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getBaseContext(), ShowCarOwnerActivity.class);
                 intent.putExtra("carOwner", carOwners.get(position));
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
@@ -74,7 +79,9 @@ public class ListCarOwnersActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         switch (id){
             case R.id.action_add_carowner:
-                startActivity(new Intent(getBaseContext(), ManipulateCarOwnerActivity.class));
+                Intent intent = new Intent(getBaseContext(), ManipulateCarOwnerActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
                 break;
             case R.id.action_search_carowner:
                 break;

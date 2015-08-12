@@ -18,4 +18,5 @@
     <string name="title_activity_order_service2">OrderService2Activity</string>
     <string name="title_activity_order_service_diagnostic">Diagnostico</string>
     <string name="title_activity_order_service_quotes">Presupuesto</string>
+    <string name="title_activity_read_tag">Leer TAG</string>
 </resources>

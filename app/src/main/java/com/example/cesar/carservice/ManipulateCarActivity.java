@@ -48,9 +48,10 @@ public class ManipulateCarActivity extends ActionBarActivity {
     int carOwnerId, carLineId;
     List<String> brands, lines;
     Map<String, Integer> mapBrands, mapLines;
-    String noBrand = "Selecciona la marca del vehiculo", noLine  = "Selecciona la linea del vehiculo";
+    String noBrand = "Selecciona la marca del vehiculo", noLine  = "Selecciona la linea del vehiculo", carOwnerName;
     int nothing = 0;
     Car car;
+    User user;
 
     Spinner spCarBrand, spCarLine;
     EditText etEPC, etModel, etColor, etSerialNumber, etKM;
@@ -62,6 +63,8 @@ public class ManipulateCarActivity extends ActionBarActivity {
         setContentView(R.layout.activity_manipulate_car);
 
         carOwnerId = getIntent().getExtras().getInt("carOwnerId");
+        carOwnerName = getIntent().getExtras().getString("carOwnerName");
+        user = (User)getIntent().getExtras().get("user");
 
         etEPC = (EditText)findViewById(R.id.etEPC);
         etModel = (EditText)findViewById(R.id.etCarModel);
@@ -315,6 +318,9 @@ public class ManipulateCarActivity extends ActionBarActivity {
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                 car = objectMapper.readValue(jsonObject.toString(), Car.class);
+                car.brandName = spCarBrand.getSelectedItem().toString();
+                car.lineName = spCarLine.getSelectedItem().toString();
+                car.ownerName = carOwnerName;
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -331,6 +337,7 @@ public class ManipulateCarActivity extends ActionBarActivity {
                     car.id = jsonObject.getInt("id");
                     Intent intent = new Intent(getBaseContext(), ShowCarActivity.class);
                     intent.putExtra("car", car);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                     return;
                 }

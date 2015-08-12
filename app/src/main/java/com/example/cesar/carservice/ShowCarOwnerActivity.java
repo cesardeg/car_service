@@ -16,12 +16,14 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
     TextView txtBusinessName, txtRFC, txtFirstName, txtLastName, txtMotherMaidenName,
             txtStreet, txtNeighborhood, txtState, txtTown, txtPostalCode, txtEmail, txtTelephone, txtMovil;
     Button btnAddCar;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_car_owner);
 
         final CarOwner carOwner = (CarOwner)getIntent().getExtras().get("carOwner");
+        user = (User)getIntent().getExtras().get("user");
         layoutPerson = findViewById(R.id.layoutPersonShowCarOwner);
         layoutBusiness = findViewById(R.id.layoutBusinessShowCarOwner);
         txtBusinessName = (TextView) findViewById(R.id.txtBusinessName);
@@ -54,20 +56,25 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
         txtNeighborhood.setText(carOwner.getNeighborhood());
         txtTown.setText(carOwner.getTown());
         txtState.setText(carOwner.getState());
-        if (carOwner.getPostal_code() != null)
+        //if (carOwner.getPostal_code() != null)
             txtPostalCode.setText(carOwner.getPostal_code());
-        if (carOwner.getEmail() != null)
+        //if (carOwner.getEmail() != null)
             txtEmail.setText(carOwner.getEmail());
-        if (carOwner.getPhone_number() != null)
+        //if (carOwner.getPhone_number() != null)
             txtTelephone.setText(carOwner.getPhone_number());
-        if (carOwner.getMobile_phone_number() != null)
+        //if (carOwner.getMobile_phone_number() != null)
             txtMovil.setText(carOwner.getMobile_phone_number());
 
         btnAddCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ManipulateCarActivity.class);
+                String carOwnerName = carOwner.getType().equals("Person") ?
+                        carOwner.getFirst_name() + " " + carOwner.getLast_name() + " " + carOwner.getMother_maiden_name() :
+                        carOwner.getBusiness_name();
+                intent.putExtra("carOwnerName", carOwnerName);
                 intent.putExtra("carOwnerId", carOwner.getId());
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });

@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_orderservice"
-        android:title="Editar"
-        android:icon="@drawable/ic_edit"
+        android:title="Orden de Servicio"
+        android:icon="@drawable/ic_orderservice"
         app:showAsAction="ifRoom" />
 </menu>

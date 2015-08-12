@@ -1,16 +1,28 @@
 package com.example.cesar.carservice;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.TextureView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,10 +32,51 @@ import java.io.InputStreamReader;
 
 public class ShowCarActivity extends ActionBarActivity {
 
+    ImageView imgCar;
+    TextView txtOwnerName, txtEPC, txtCarBrand, txtCarLine, txtModel, txtSerialNumber, txtColor, txtKM;
+    Button btnHistorial, btnOrderService, btnInputKM;
+    Car car;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_car);
+
+        car = (Car)getIntent().getExtras().get("car");
+        user = (User)getIntent().getExtras().get("user");
+
+        txtOwnerName = (TextView)findViewById(R.id.txtOwnerName);
+        txtEPC = (TextView)findViewById(R.id.txtEPC);
+        txtCarBrand = (TextView)findViewById(R.id.txtCarBrand);
+        txtCarLine = (TextView)findViewById(R.id.txtCarLine);
+        txtModel = (TextView)findViewById(R.id.txtCarModel);
+        txtSerialNumber = (TextView)findViewById(R.id.txtSerialNumber);
+        txtColor = (TextView)findViewById(R.id.txtColor);
+        txtKM = (TextView)findViewById(R.id.txtKM);
+
+        txtOwnerName.setText(car.ownerName);
+        txtEPC.setText(car.epc);
+        txtCarBrand.setText(car.brandName);
+        txtCarLine.setText(car.lineName);
+        txtModel.setText(car.model + "");
+        txtSerialNumber.setText(car.serial_number);
+        txtColor.setText(car.color);
+        txtKM.setText(car.km + " KM");
+
+        btnHistorial = (Button)findViewById(R.id.btnHistorial);
+        btnOrderService = (Button)findViewById(R.id.btnOrderService);
+        btnInputKM = (Button) findViewById(R.id.btnInputKM);
+
+        btnOrderService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), OrderService1Activity.class);
+                intent.putExtra("car", car);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

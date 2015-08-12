@@ -46,12 +46,14 @@ public class ManipulateCarOwnerActivity extends ActionBarActivity {
     Button btnSave;
     int client_id = 1;
     String typeCarOwner;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manipulate_car_owner);
 
+        user = (User)getIntent().getExtras().get("user");
         spType = (Spinner)findViewById(R.id.spCarOwnerType);
         etBusinessName = (EditText)findViewById(R.id.etBusinessName);
         etRFC = (EditText)findViewById(R.id.etRFC);
@@ -224,6 +226,7 @@ public class ManipulateCarOwnerActivity extends ActionBarActivity {
                     carOwner.setId(jsonObject.getInt("id"));
                     Intent intent = new Intent(getBaseContext(), ShowCarOwnerActivity.class);
                     intent.putExtra("carOwner", carOwner);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                     return;
                 }

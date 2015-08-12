@@ -348,12 +348,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Diagnostico"/>
-
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:hint="Escribir Diagnostico"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mecanico a cargo"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre mecanico"/>
 
             </LinearLayout>
 

@@ -13,16 +13,32 @@ public class MenuActivity extends ActionBarActivity {
 
     Button btnCarOwners;
     Button btnScan;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        user = (User)getIntent().getExtras().get("user");
         btnCarOwners = (Button)findViewById(R.id.btnCarOwners);
         btnScan = (Button)findViewById(R.id.btnReadTAG);
         btnCarOwners.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), ListCarOwnersActivity.class));
+                Intent intent = new Intent(getBaseContext(), ListCarOwnersActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+
+        btnScan = (Button) findViewById(R.id.btnReadTAG);
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ReadTagActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
             }
         });
     }

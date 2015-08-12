@@ -98,6 +98,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cesar.carservice.OrderServiceDiagnosticActivity" />
         </activity>
+        <activity
+            android:name=".ReadTagActivity"
+            android:label="@string/title_activity_read_tag"
+            android:parentActivityName=".MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cesar.carservice.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>

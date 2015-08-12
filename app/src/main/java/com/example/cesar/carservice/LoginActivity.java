@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -33,6 +36,8 @@ public class LoginActivity extends ActionBarActivity {
 
     EditText etUsername, etPassword;
     Button btnLogin;
+    User user;
+    int client_id = 1;
 
     private static final String LOGIN_URL = "http://192.168.15.125/~Cesar/carservice/public/login/";
 
@@ -92,6 +97,7 @@ public class LoginActivity extends ActionBarActivity {
     private class LoginAsyncTask extends AsyncTask<String, String, String>  {
 
         String username, password;
+        JSONObject jsonObject;
 
         protected void onPreExecute() {
         }
@@ -100,10 +106,11 @@ public class LoginActivity extends ActionBarActivity {
             //obtnemos usr y pass
             username = etUsername.getText().toString();
             password = etPassword.getText().toString();
-            JSONObject jsonObject = new JSONObject();
+            jsonObject = new JSONObject();
             try {
                 jsonObject.accumulate("username", username);
                 jsonObject.accumulate("password", password);
+                jsonObject.accumulate("client_id", client_id);
             }catch (Exception e){
                 e.getStackTrace();
             }
@@ -117,10 +124,16 @@ public class LoginActivity extends ActionBarActivity {
         protected void onPostExecute(String result) {
 
             try {
-                JSONObject jsonObject = new JSONObject(result);
-                if (jsonObject.has("success")){
-                    if (jsonObject.getInt("success") == 1){
+                JSONObject jsonResult = new JSONObject(result);
+                if (jsonResult.has("success")){
+                    if (jsonResult.getInt("success") == 1){
+                        ObjectMapper objectMapper = new ObjectMapper();
+                        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                        user = objectMapper.readValue(jsonObject.toString(), User.class);
+                        if (jsonResult.has("id")) user.id = jsonResult.getInt("id");
+                        if (jsonResult.has("workshop_id")) user.workshop_id = jsonResult.getInt("workshop_id");
                         Intent i = new Intent(getBaseContext(), MenuActivity.class);
+                        i.putExtra("user", user);
                         startActivity(i);
                     } else {
                         Toast.makeText(getBaseContext(), "Nombre de Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
