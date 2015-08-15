@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -188,9 +187,8 @@ public class ManipulateCarActivity extends ActionBarActivity {
             HttpClient httpclient = new DefaultHttpClient();
             // 2. create POST request to the given URL
             HttpPost httpPost = new HttpPost(url);
-            String json = "";
             // 3. convert JSONObject to JSON to String
-            json = jsonObject.toString();
+            String json = jsonObject.toString();
             // 4. set json to StringEntity
             StringEntity se = new StringEntity(json);
             // 5. set httpPost Entity

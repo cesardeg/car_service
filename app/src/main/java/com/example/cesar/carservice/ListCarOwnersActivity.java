@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,11 +17,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -39,7 +35,6 @@ public class ListCarOwnersActivity extends ActionBarActivity {
     ListView lv;
     List<CarOwner> carOwners;
     User user;
-    int client_id = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +44,7 @@ public class ListCarOwnersActivity extends ActionBarActivity {
         user = (User)getIntent().getExtras().get("user");
         lv = (ListView)findViewById(R.id.lvCarOwners);
         carOwners = new ArrayList<CarOwner>();
-        new HttpAsyncTask().execute(URL);
+        new HttpAsyncTask().execute(URL + "/" + user.client_id + "/");
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

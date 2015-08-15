@@ -57,7 +57,7 @@ public class HttpAux {
             // 5. set httpPost Entity
             httpPost.setEntity(se);
             // 6. Set some headers to inform server about the type of the content
-            httpPost.setHeader("Accept", "application/json");
+            //httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
             // 7. Execute POST request to the given URL
             HttpResponse httpResponse = httpclient.execute(httpPost);

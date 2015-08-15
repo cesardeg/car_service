@@ -40,11 +40,9 @@ public class ManipulateCarOwnerActivity extends ActionBarActivity {
     CarOwner carOwner;
 
     private static final String STORE_URL = "http://192.168.15.125/~Cesar/carservice/public/createowner/";
-    private static final String USERNAME_URL = "http://192.168.15.125/~Cesar/carservice/public/username/";
 
     Spinner spType;
     Button btnSave;
-    int client_id = 1;
     String typeCarOwner;
     User user;
 
@@ -174,11 +172,7 @@ public class ManipulateCarOwnerActivity extends ActionBarActivity {
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
-            if (typeCarOwner == "Business") {
 
-            } else if (typeCarOwner == "Person") {
-
-            }
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.accumulate("type", typeCarOwner);
@@ -207,7 +201,7 @@ public class ManipulateCarOwnerActivity extends ActionBarActivity {
                 if (!etMovil.getText().toString().trim().equals(""))
                     jsonObject.accumulate("mobile_phone_number", etMovil.getText().toString().trim());
 
-                jsonObject.accumulate("client_id", client_id);
+                jsonObject.accumulate("client_id", user.client_id);
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                 carOwner = objectMapper.readValue(jsonObject.toString(), CarOwner.class);

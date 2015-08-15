@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +22,7 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
+            android:launchMode="singleTop"
             android:parentActivityName=".LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,6 +31,7 @@
         <activity
             android:name=".ListCarOwnersActivity"
             android:label="@string/title_activity_list_car_owners"
+            android:launchMode="singleTop"
             android:parentActivityName=".MenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,6 +40,7 @@
         <activity
             android:name=".ManipulateCarOwnerActivity"
             android:label="@string/title_activity_manipulate_car_owner"
+            android:launchMode="singleTop"
             android:parentActivityName=".ListCarOwnersActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -45,30 +49,43 @@
         <activity
             android:name=".ShowCarOwnerActivity"
             android:label="@string/title_activity_show_car_owner"
+            android:launchMode="singleTop"
             android:parentActivityName=".ListCarOwnersActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cesar.carservice.ListCarOwnersActivity" />
         </activity>
         <activity
-            android:name=".ShowCarActivity"
-            android:label="@string/title_activity_show_car"
+            android:name=".ManipulateCarActivity"
+            android:label="@string/title_activity_manipulate_car"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ShowCarOwnerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cesar.carservice.ShowCarOwnerActivity" />
+        </activity>
+        <activity
+            android:name=".ReadTagActivity"
+            android:label="@string/title_activity_read_tag"
+            android:launchMode="singleTop"
             android:parentActivityName=".MenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cesar.carservice.MenuActivity" />
         </activity>
         <activity
-            android:name=".ManipulateCarActivity"
-            android:label="@string/title_activity_manipulate_car"
-            android:parentActivityName=".ShowCarActivity" >
+            android:name=".ShowCarActivity"
+            android:label="@string/title_activity_show_car"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ReadTagActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.cesar.carservice.ShowCarActivity" />
+                android:value="com.example.cesar.carservice.ReadTagActivity" />
         </activity>
         <activity
             android:name=".OrderService1Activity"
             android:label="@string/title_activity_order_service1"
+            android:launchMode="singleTop"
             android:parentActivityName=".ShowCarActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -77,34 +94,38 @@
         <activity
             android:name=".OrderService2Activity"
             android:label="@string/title_activity_order_service2"
+            android:launchMode="singleTop"
             android:parentActivityName=".OrderService1Activity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cesar.carservice.OrderService1Activity" />
         </activity>
         <activity
-            android:name=".OrderServiceDiagnosticActivity"
-            android:label="@string/title_activity_order_service_diagnostic"
+            android:name=".OrderService3Activity"
+            android:label="@string/title_activity_order_service3"
+            android:launchMode="singleTop"
             android:parentActivityName=".OrderService2Activity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cesar.carservice.OrderService2Activity" />
         </activity>
         <activity
-            android:name=".OrderServiceQuotesActivity"
-            android:label="@string/title_activity_order_service_quotes"
-            android:parentActivityName=".OrderServiceDiagnosticActivity" >
+            android:name=".OrderService4Activity"
+            android:label="@string/title_activity_order_service4"
+            android:launchMode="singleTop"
+            android:parentActivityName=".OrderService3Activity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.cesar.carservice.OrderServiceDiagnosticActivity" />
+                android:value="com.example.cesar.carservice.OrderService3Activity" />
         </activity>
         <activity
-            android:name=".ReadTagActivity"
-            android:label="@string/title_activity_read_tag"
-            android:parentActivityName=".MenuActivity" >
+            android:name=".OrderServiceQuotesActivity"
+            android:label="@string/title_activity_order_service_quotes"
+            android:launchMode="singleTop"
+            android:parentActivityName=".OrderService4Activity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.cesar.carservice.MenuActivity" />
+                android:value="com.example.cesar.carservice.OrderService4Activity" />
         </activity>
     </application>
 

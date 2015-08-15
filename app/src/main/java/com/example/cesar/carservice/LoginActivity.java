@@ -1,6 +1,5 @@
 package com.example.cesar.carservice;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -15,21 +14,7 @@ import android.widget.Toast;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -37,7 +22,6 @@ public class LoginActivity extends ActionBarActivity {
     EditText etUsername, etPassword;
     Button btnLogin;
     User user;
-    int client_id = 1;
 
     private static final String LOGIN_URL = "http://192.168.15.125/~Cesar/carservice/public/login/";
 
@@ -96,21 +80,17 @@ public class LoginActivity extends ActionBarActivity {
 
     private class LoginAsyncTask extends AsyncTask<String, String, String>  {
 
-        String username, password;
-        JSONObject jsonObject;
-
         protected void onPreExecute() {
         }
 
         protected String doInBackground(String... params) {
             //obtnemos usr y pass
-            username = etUsername.getText().toString();
-            password = etPassword.getText().toString();
-            jsonObject = new JSONObject();
+            String username = etUsername.getText().toString();
+            String password = etPassword.getText().toString();
+            JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.accumulate("username", username);
                 jsonObject.accumulate("password", password);
-                jsonObject.accumulate("client_id", client_id);
             }catch (Exception e){
                 e.getStackTrace();
             }
@@ -122,16 +102,13 @@ public class LoginActivity extends ActionBarActivity {
         pasamos a la sig. activity
         o mostramos error*/
         protected void onPostExecute(String result) {
-
             try {
                 JSONObject jsonResult = new JSONObject(result);
                 if (jsonResult.has("success")){
-                    if (jsonResult.getInt("success") == 1){
+                    if (jsonResult.getInt("success") == 1 && jsonResult.has("user")){
                         ObjectMapper objectMapper = new ObjectMapper();
                         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                        user = objectMapper.readValue(jsonObject.toString(), User.class);
-                        if (jsonResult.has("id")) user.id = jsonResult.getInt("id");
-                        if (jsonResult.has("workshop_id")) user.workshop_id = jsonResult.getInt("workshop_id");
+                        user = objectMapper.readValue(jsonResult.getJSONObject("user").toString(), User.class);
                         Intent i = new Intent(getBaseContext(), MenuActivity.class);
                         i.putExtra("user", user);
                         startActivity(i);

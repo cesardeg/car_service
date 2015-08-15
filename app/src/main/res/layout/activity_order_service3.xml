@@ -39,47 +39,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgTires"
+                    android:checkedButton="@+id/rbTiresGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbTiresGood" />
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbTiresReg" />
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbTiresBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Amortiguadores Delanteros"/>
+                    android:text="Amortiguadores Delanteros" />
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgFrontShock"
+                    android:checkedButton="@+id/rbFrontShockGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbFrontShockGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbFrontShockReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbFrontShockBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -89,22 +99,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgRearShock"
+                    android:checkedButton="@+id/rbRearShockGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbRearShockGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbRearShockReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbRearShockBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -114,22 +129,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgFrontBrakes"
+                    android:checkedButton="@+id/rbFrontBrakesGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbFrontBrakesGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbFrontBrakesReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbFrontBrakesBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -139,22 +159,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgRearBrakes"
+                    android:checkedButton="@+id/rbRearBrakesGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbRearBrakesGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbRearBrakesReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbRearBrakesBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -164,22 +189,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgSuspension"
+                    android:checkedButton="@+id/rbSuspensionGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbSuspensionGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbSuspensionReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbSuspensionBad"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -189,22 +219,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgBands"
+                    android:checkedButton="@+id/rbBandsGood">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Bueno"/>
+                        android:text="Bueno"
+                        android:id="@+id/rbBandsGood"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Regular"/>
+                        android:text="Regular"
+                        android:id="@+id/rbBandsReg"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Malo"/>
+                        android:text="Malo"
+                        android:id="@+id/rbBandsBad"/>
                 </RadioGroup>
             </LinearLayout>
 
@@ -228,42 +263,50 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Liquido Frenos"/>
+                    android:text="Líquido Frenos"/>
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgBrakesFluid"
+                    android:checkedButton="@+id/rbBrakesFluidOk">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="A nivel"/>
+                        android:text="A nivel"
+                        android:id="@+id/rbBrakesFluidOk"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Falta"/>
+                        android:text="Falta"
+                        android:id="@+id/rbBrakesFluidLack"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Limpia Parabrisas"/>
+                    android:text="Líquido Limpiaparabrisas"/>
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgWipers"
+                    android:checkedButton="@+id/rbWipersOk">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="A nivel"/>
+                        android:text="A nivel"
+                        android:id="@+id/rbWipersOk"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Falta"/>
+                        android:text="Falta"
+                        android:id="@+id/rbWipersLack"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -273,17 +316,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgAntifreeze"
+                    android:checkedButton="@+id/rbAntifreezeOk">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="A nivel"/>
+                        android:text="A nivel"
+                        android:id="@+id/rbAntifreezeOk"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Falta"/>
+                        android:text="Falta"
+                        android:id="@+id/rbAntifreezeLack"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
@@ -293,83 +340,53 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgOil"
+                    android:checkedButton="@+id/rbOilOk">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="A nivel"/>
+                        android:text="A nivel"
+                        android:id="@+id/rbOilOk"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Falta"/>
+                        android:text="Falta"
+                        android:id="@+id/rbOilLack"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dirección"/>
+                    android:text="Líquido de Dirección"/>
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rgDirection"
+                    android:checkedButton="@+id/rbDirectionOk">
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="A nivel"/>
+                        android:text="A nivel"
+                        android:id="@+id/rbDirectionOk"/>
                     <RadioButton
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Falta"/>
+                        android:text="Falta"
+                        android:id="@+id/rbDirectionLack" />
                 </RadioGroup>
             </LinearLayout>
-
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_diagnostic"
-                android:layout_marginRight="16dp"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Diagnostico"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:hint="Escribir Diagnostico"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mecanico a cargo"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nombre mecanico"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Siguiente"/>
+            android:text="Siguiente"
+            android:id="@+id/btnOrderService3Next"/>
     </LinearLayout>
 </ScrollView>
 

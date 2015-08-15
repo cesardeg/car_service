@@ -9,14 +9,22 @@
     <string name="title_activity_show_car_owner">Cliente</string>
     <string name="title_activity_show_car">Vehiculo</string>
     <string name="title_activity_manipulate_car">Agregar Vehiculo</string>
-    <string-array name="typeCarOwner_arrays">
-        <item>Selecciona Tipo de Cliente</item>
-        <item>Persona</item>
-        <item>Empresa</item>
-    </string-array>
     <string name="title_activity_order_service1">Orden de Servicio</string>
     <string name="title_activity_order_service2">OrderService2Activity</string>
     <string name="title_activity_order_service_diagnostic">Diagnostico</string>
     <string name="title_activity_order_service_quotes">Presupuesto</string>
     <string name="title_activity_read_tag">Leer TAG</string>
+    <string-array name="typeCarOwner_arrays">
+        <item>Selecciona Tipo de Cliente</item>
+        <item>Persona</item>
+        <item>Empresa</item>
+    </string-array>
+    <string-array name="typeOrders">
+        <item>Selecciona tipo de Servicio</item>
+        <item>Mantenimiento</item>
+        <item>Revisión de Falla</item>
+        <item>Diagnóstico General</item>
+    </string-array>
+    <string name="title_activity_order_service3">Diagnostico</string>
+    <string name="title_activity_order_service4">OrderService4Activity</string>
 </resources>

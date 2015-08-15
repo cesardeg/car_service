@@ -3,157 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+
     tools:context="com.example.cesar.carservice.ManipulateCarOwnerActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:src="@drawable/img_car"
+            android:layout_marginBottom="5dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/imgCar"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_photo"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/imgCar"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_car"
-                android:layout_marginRight="16dp"
-                android:id="@+id/imgShowCar"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="match_parent"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_car"
+                    android:layout_marginRight="16dp"
+                    android:id="@+id/imgShowCar"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Nombre Propietario"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nombre Propietario"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtOwnerName"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="EPC"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="EPC"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtEPC"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Marca"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Marca"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtCarBrand"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Línea"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Línea"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtCarLine"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Modelo"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Módelo"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtCarModel"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Numero de Serie"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Número de Serie"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtSerialNumber"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Color"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Color"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtColor"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Kilometraje"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Kilometraje"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/txtKM"/>
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre Propietario"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre Propietario"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtOwnerName"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="EPC"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="EPC"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtEPC"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marca"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marca"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtCarBrand"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Línea"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Línea"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtCarLine"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modelo"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Módelo"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtCarModel"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Numero de Serie"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Número de Serie"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtSerialNumber"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Color"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Color"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtColor"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kilometraje"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kilometraje"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#111111"
+                        android:id="@+id/txtKM"/>
 
+                </LinearLayout>
             </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Historial"
+                android:id="@+id/btnHistorial"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orden de Servicio"
+                android:id="@+id/btnOrderService"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capturar Kilometraje"
+                android:id="@+id/btnInputKM"/>
+
         </LinearLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Historial"
-            android:id="@+id/btnHistorial"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Orden de Servicio"
-            android:id="@+id/btnOrderService"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Capturar Kilometraje"
-            android:id="@+id/btnInputKM"/>
 
     </LinearLayout>
+
 </ScrollView>

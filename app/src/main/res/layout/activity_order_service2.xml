@@ -45,7 +45,9 @@
                         android:layout_height="wrap_content"
                         android:showText="true"
                         android:textOn="S"
-                        android:textOff="N" />
+                        android:textOff="N"
+                        android:checked="false"
+                        android:id="@+id/swSuppliedParts" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -63,7 +65,9 @@
                         android:layout_height="wrap_content"
                         android:showText="true"
                         android:textOn="S"
-                        android:textOff="N"/>
+                        android:textOff="N"
+                        android:checked="false"
+                        android:id="@+id/swAllowUsedParts" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -83,14 +87,30 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Recoger Vehiculo"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Se recogió Vehiculo"
+                        android:layout_gravity="center_vertical"/>
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:showText="true"
+                        android:textOn="S"
+                        android:textOff="N"
+                        android:checked="false"
+                        android:id="@+id/swPickUp" />
+                </LinearLayout>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Dirección"/>
+                    android:hint="Dirección"
+                    android:id="@+id/etPickUpAddress" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,17 +126,21 @@
                         android:layout_height="wrap_content"
                         android:showText="true"
                         android:textOn="S"
-                        android:textOff="N"/>
+                        android:textOff="N"
+                        android:checked="false"
+                        android:id="@+id/swDeliver" />
                 </LinearLayout>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Dirección"/>
+                    android:hint="Dirección"
+                    android:id="@+id/etDeliverAddress" />
             </LinearLayout>
         </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Siguiente"/>
+            android:text="Siguiente"
+            android:id="@+id/btnOrderService2Next" />
     </LinearLayout>
 </ScrollView>

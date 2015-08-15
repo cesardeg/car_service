@@ -2,6 +2,7 @@ package com.example.cesar.carservice;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,7 +25,6 @@ public class ReadTagActivity extends ActionBarActivity {
     EditText etEpc;
     Car car;
     User user;
-    int client_id = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +67,11 @@ public class ReadTagActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -84,7 +87,7 @@ public class ReadTagActivity extends ActionBarActivity {
             //obtnemos usr y pass
 
             String epc = etEpc.getText().toString().trim();
-            return HttpAux.httpGetRequest(params[0] + "/" + client_id + "/" + epc + "/");
+            return HttpAux.httpGetRequest(params[0] + "/" + user.client_id + "/" + epc + "/");
 
         }
 

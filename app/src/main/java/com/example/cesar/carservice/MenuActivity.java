@@ -1,16 +1,19 @@
 package com.example.cesar.carservice;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MenuActivity extends ActionBarActivity {
 
+    TextView txtName;
     Button btnCarOwners;
     Button btnScan;
     User user;
@@ -23,6 +26,10 @@ public class MenuActivity extends ActionBarActivity {
         user = (User)getIntent().getExtras().get("user");
         btnCarOwners = (Button)findViewById(R.id.btnCarOwners);
         btnScan = (Button)findViewById(R.id.btnReadTAG);
+        txtName = (TextView)findViewById(R.id.txtName);
+
+        txtName.setText(user.first_name + " " + user.last_name);
+
         btnCarOwners.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,8 +65,11 @@ public class MenuActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -17,12 +17,13 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
             txtStreet, txtNeighborhood, txtState, txtTown, txtPostalCode, txtEmail, txtTelephone, txtMovil;
     Button btnAddCar;
     User user;
+    CarOwner carOwner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_car_owner);
 
-        final CarOwner carOwner = (CarOwner)getIntent().getExtras().get("carOwner");
+        carOwner = (CarOwner)getIntent().getExtras().get("carOwner");
         user = (User)getIntent().getExtras().get("user");
         layoutPerson = findViewById(R.id.layoutPersonShowCarOwner);
         layoutBusiness = findViewById(R.id.layoutBusinessShowCarOwner);
@@ -56,14 +57,10 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
         txtNeighborhood.setText(carOwner.getNeighborhood());
         txtTown.setText(carOwner.getTown());
         txtState.setText(carOwner.getState());
-        //if (carOwner.getPostal_code() != null)
-            txtPostalCode.setText(carOwner.getPostal_code());
-        //if (carOwner.getEmail() != null)
-            txtEmail.setText(carOwner.getEmail());
-        //if (carOwner.getPhone_number() != null)
-            txtTelephone.setText(carOwner.getPhone_number());
-        //if (carOwner.getMobile_phone_number() != null)
-            txtMovil.setText(carOwner.getMobile_phone_number());
+        txtPostalCode.setText(carOwner.getPostal_code());
+        txtEmail.setText(carOwner.getEmail());
+        txtTelephone.setText(carOwner.getPhone_number());
+        txtMovil.setText(carOwner.getMobile_phone_number());
 
         btnAddCar.setOnClickListener(new View.OnClickListener() {
             @Override
