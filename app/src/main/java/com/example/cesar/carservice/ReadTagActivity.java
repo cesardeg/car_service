@@ -39,9 +39,8 @@ import RFID_Data.UsbCommunication;
 
 public class ReadTagActivity extends ActionBarActivity {
 
-    private static final String URL = "http://192.168.15.125/~Cesar/carservice/public/carbyepc/";
-
     private static final String ACTION_USB_PERMISSION = "com.mti.rfid.minime.USB_PERMISSION";
+    private String URL;
     boolean DEBUG = false;
     private static final int PID = 49193;
     private static final int VID = 4901;
@@ -52,14 +51,14 @@ public class ReadTagActivity extends ActionBarActivity {
     Button btnRead;
     TextView txtStatus;
 
-    Car car;
-    User user;
+    int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_tag);
 
+        URL = getString(R.string.base_url) + getString(R.string.findcarid_url);
         manager = (UsbManager)getSystemService(Context.USB_SERVICE);
         usbCommunication = UsbCommunication.newInstance();
 
@@ -69,20 +68,25 @@ public class ReadTagActivity extends ActionBarActivity {
         filter.addAction(ACTION_USB_PERMISSION);
         registerReceiver(usbReceiver, filter);
 
-        user = (User)getIntent().getExtras().get("user");
-        etEpc = (EditText)findViewById(R.id.etEPCReadTag);
-        btnRead = (Button)findViewById(R.id.btnRead);
+        if (getIntent().getExtras().containsKey("userId"))
+            userId = getIntent().getExtras().getInt("userId");
+
+        etEpc     = (EditText)findViewById(R.id.etEPCReadTag);
+        btnRead   = (Button)findViewById(R.id.btnRead);
         txtStatus = (TextView)findViewById(R.id.txtStatus);
-        etEpc.setFocusable(false);
+
+        //etEpc.setFocusable(false);
         btnRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etEpc.setText("");
+                if (validate())
+                    new HttpAsyncTask().execute(URL);
+                /*etEpc.setText("");
                 if (txtStatus.getText().toString().equals("conectado")) {
                     readTag();
                 } else {
                     Toast.makeText(getBaseContext(), "dispositivo " + txtStatus.getText(), Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
     }
@@ -91,6 +95,7 @@ public class ReadTagActivity extends ActionBarActivity {
     public void onResume()
     {
         super.onResume();
+        etEpc.setText("");
         HashMap<String, UsbDevice> deviceList = manager.getDeviceList();
         Iterator<UsbDevice> deviceIterator = deviceList.values().iterator();
         txtStatus.setText("desconectado");
@@ -107,7 +112,6 @@ public class ReadTagActivity extends ActionBarActivity {
         }
     }
 
-
     BroadcastReceiver usbReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -119,10 +123,6 @@ public class ReadTagActivity extends ActionBarActivity {
                 if(!manager.hasPermission(device)) {
                     manager.requestPermission(device, PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(ACTION_USB_PERMISSION), 0));
                     txtStatus.setText("sin permisos");
-                } else {
-                    usbCommunication.setUsbInterface(manager, device);
-                    setPowerLevel();
-                    txtStatus.setText("conectado");
                 }
             }
             else if(UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
@@ -227,38 +227,27 @@ public class ReadTagActivity extends ActionBarActivity {
 
     private class HttpAsyncTask extends AsyncTask<String, String, String> {
 
+        @Override
         protected String doInBackground(String... params) {
-            //obtnemos usr y pass
-            String epc = etEpc.getText().toString().replace(" ", "+");
-            return HttpAux.httpGetRequest(params[0] + user.client_id + "/" + epc + "/");
+            String epc = URLEncoder.encode(etEpc.getText().toString().trim());
+            return HttpAux.httpGetRequest(params[0] + userId + "/" + epc + "/");
 
         }
 
-        /*Una vez terminado doInBackground segun lo que halla ocurrido
-        pasamos a la sig. activity
-        o mostramos error*/
+        @Override
         protected void onPostExecute(String result) {
-
             try {
                 JSONObject jsonResult = new JSONObject(result);
-                if (jsonResult.has("car")) {
-                    JSONObject jsonObject = jsonResult.getJSONObject("car");
-                    if (jsonObject != null ) {
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                        car = objectMapper.readValue(jsonObject.toString(), Car.class);
-                        Intent i = new Intent(getBaseContext(), ShowCarActivity.class);
-                        i.putExtra("car", car);
-                        i.putExtra("user", user);
-                        startActivity(i);
-                    } else {
-                        Toast.makeText(getBaseContext(), "No existe un Vehiculo asociado a este TAG", Toast.LENGTH_LONG).show();
-                    }
+                if (jsonResult.getBoolean("success")) {
+                    Intent intent = new Intent(getBaseContext(), ShowCarActivity.class);
+                    intent.putExtra("userId", userId);
+                    intent.putExtra("carId", jsonResult.getInt("id"));
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(getBaseContext(), "Error: " + result, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), jsonResult.getString("msj"), Toast.LENGTH_LONG).show();
                 }
-            } catch (Exception e){
-                Toast.makeText(getBaseContext(), "Fallo la conexión, vuelve a intentar", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                Toast.makeText(getBaseContext(), result + "\n" + e.getMessage(), Toast.LENGTH_LONG).show();
                 e.getStackTrace();
             }
         }

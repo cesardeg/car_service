@@ -39,7 +39,8 @@
                     android:text="Razón Social"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtBusinessName"/>
+                    android:id="@+id/txtBusinessName"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,7 +52,8 @@
                     android:text="RFC"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtRFC"/>
+                    android:id="@+id/txtRFC"
+                    android:textColor="#111111"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -83,7 +85,8 @@
                     android:text="Nombre(s)"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtFirstName"/>
+                    android:id="@+id/txtFirstName"
+                    android:textColor="#111111"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -104,7 +107,8 @@
                             android:text="Ap. Paterno"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_marginBottom="10dp"
-                            android:id="@+id/txtLastName"/>
+                            android:id="@+id/txtLastName"
+                            android:textColor="#111111"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="0dp"
@@ -122,7 +126,8 @@
                             android:text="Ap. Materno"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_marginBottom="10dp"
-                            android:id="@+id/txtMotherMaidenName"/>
+                            android:id="@+id/txtMotherMaidenName"
+                            android:textColor="#111111"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -155,7 +160,8 @@
                     android:text="Calle y número"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtStreet"/>
+                    android:id="@+id/txtStreet"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,7 +173,8 @@
                     android:text="Colonia"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtNeighborhood"/>
+                    android:id="@+id/txtNeighborhood"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -179,7 +186,8 @@
                     android:text="Estado"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtState"/>
+                    android:id="@+id/txtState"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -191,7 +199,8 @@
                     android:text="Municipio"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtTown"/>
+                    android:id="@+id/txtTown"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,7 +212,8 @@
                     android:text="CP"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="5dp"
-                    android:id="@+id/txtPostalCode" />
+                    android:id="@+id/txtPostalCode"
+                    android:textColor="#111111"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -234,7 +244,8 @@
                     android:text="Correo Eléctronico"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtEmail"/>
+                    android:id="@+id/txtEmail"
+                    android:textColor="#111111"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -265,7 +276,8 @@
                     android:text="Teléfono"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtTelephone"/>
+                    android:id="@+id/txtTelephone"
+                    android:textColor="#111111"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -277,7 +289,8 @@
                     android:text="Celular"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_marginBottom="10dp"
-                    android:id="@+id/txtMovil"/>
+                    android:id="@+id/txtMovil"
+                    android:textColor="#111111"/>
             </LinearLayout>
         </LinearLayout>
         <Button

@@ -1,6 +1,7 @@
 package com.example.cesar.carservice;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,23 +9,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.json.JSONObject;
+
+import Models.CarOwner;
 
 
 public class ShowCarOwnerActivity extends ActionBarActivity {
 
+    String URL;
     View layoutPerson, layoutBusiness;
     TextView txtBusinessName, txtRFC, txtFirstName, txtLastName, txtMotherMaidenName,
             txtStreet, txtNeighborhood, txtState, txtTown, txtPostalCode, txtEmail, txtTelephone, txtMovil;
     Button btnAddCar;
-    User user;
-    CarOwner carOwner;
+    int userId, carOwnerId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_car_owner);
 
-        carOwner = (CarOwner)getIntent().getExtras().get("carOwner");
-        user = (User)getIntent().getExtras().get("user");
+        URL = getString(R.string.base_url) + getString(R.string.carowner_url);
+        if (getIntent().getExtras().containsKey("userId"))
+            userId = getIntent().getExtras().getInt("userId");
+        if (getIntent().getExtras().containsKey("carOwnerId"))
+            carOwnerId = getIntent().getExtras().getInt("carOwnerId");
+
         layoutPerson = findViewById(R.id.layoutPersonShowCarOwner);
         layoutBusiness = findViewById(R.id.layoutBusinessShowCarOwner);
         txtBusinessName = (TextView) findViewById(R.id.txtBusinessName);
@@ -42,39 +57,21 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
         txtMovil = (TextView) findViewById(R.id.txtMovil);
         btnAddCar = (Button)findViewById(R.id.btnAddCar);
 
-        if (carOwner.getType().equals("Person")) {
-            layoutBusiness.setVisibility(View.GONE);
-            txtFirstName.setText(carOwner.getFirst_name());
-            txtLastName.setText(carOwner.getLast_name());
-            txtMotherMaidenName.setText(carOwner.getMother_maiden_name());
-        }
-        else if (carOwner.getType().equals("Business")){
-            layoutPerson.setVisibility(View.GONE);
-            txtBusinessName.setText(carOwner.getBusiness_name());
-            txtRFC.setText(carOwner.getRfc());
-        }
-        txtStreet.setText(carOwner.getStreet());
-        txtNeighborhood.setText(carOwner.getNeighborhood());
-        txtTown.setText(carOwner.getTown());
-        txtState.setText(carOwner.getState());
-        txtPostalCode.setText(carOwner.getPostal_code());
-        txtEmail.setText(carOwner.getEmail());
-        txtTelephone.setText(carOwner.getPhone_number());
-        txtMovil.setText(carOwner.getMobile_phone_number());
-
         btnAddCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ManipulateCarActivity.class);
-                String carOwnerName = carOwner.getType().equals("Person") ?
-                        carOwner.getFirst_name() + " " + carOwner.getLast_name() + " " + carOwner.getMother_maiden_name() :
-                        carOwner.getBusiness_name();
-                intent.putExtra("carOwnerName", carOwnerName);
-                intent.putExtra("carOwnerId", carOwner.getId());
-                intent.putExtra("user", user);
+                intent.putExtra("carOwnerId", carOwnerId);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new LoadCarOwnerAsyncTask().execute(URL);
     }
 
     @Override
@@ -92,10 +89,53 @@ public class ShowCarOwnerActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class LoadCarOwnerAsyncTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            return HttpAux.httpGetRequest(params[0] + userId + "/" + carOwnerId + "/");
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            try {
+                final JSONObject jsonResult = new JSONObject(result);
+                if (jsonResult.getBoolean("success")) {
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                    CarOwner carOwner = objectMapper.readValue(jsonResult.getJSONObject("car_owner").toString(), CarOwner.class);
+                    if (carOwner.getType().equals("Person")) {
+                        layoutBusiness.setVisibility(View.GONE);
+                        txtFirstName.setText(carOwner.getFirst_name());
+                        txtLastName.setText(carOwner.getLast_name());
+                        txtMotherMaidenName.setText(carOwner.getMother_maiden_name());
+                    }
+                    else if (carOwner.getType().equals("Business")){
+                        layoutPerson.setVisibility(View.GONE);
+                        txtBusinessName.setText(carOwner.getBusiness_name());
+                        txtRFC.setText(carOwner.getRfc());
+                    }
+                    txtStreet.setText(carOwner.getStreet());
+                    txtNeighborhood.setText(carOwner.getNeighborhood());
+                    txtTown.setText(carOwner.getTown());
+                    txtState.setText(carOwner.getState());
+                    txtPostalCode.setText(carOwner.getPostal_code());
+                    txtEmail.setText(carOwner.getEmail());
+                    txtTelephone.setText(carOwner.getPhone_number());
+                    txtMovil.setText(carOwner.getMobile_phone_number());
+                } else {
+                    Toast.makeText(getBaseContext(), jsonResult.getString("msj"), Toast.LENGTH_LONG).show();
+                }
+            } catch (Exception e) {
+                e.getStackTrace();
+                Toast.makeText(getBaseContext(), result + "\n" + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+        }
     }
 }

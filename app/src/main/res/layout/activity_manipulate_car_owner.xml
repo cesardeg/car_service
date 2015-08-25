@@ -26,6 +26,11 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo de cliente"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <Spinner
                     android:id="@+id/spCarOwnerType"
                     android:layout_width="fill_parent"
@@ -50,20 +55,37 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Razón social"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Razón Social"
+                    android:inputType="textCapWords"
+                    android:hint="Razón social"
                     android:id="@+id/etBusinessName"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RFC"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="RFC"
+                    android:inputType="textCapCharacters"
                     android:id="@+id/etRFC"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de usuario"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre de Usuario"
+                    android:hint="Nombre de usuario"
                     android:id="@+id/etBusinessUserName"/>
             </LinearLayout>
         </LinearLayout>
@@ -84,32 +106,65 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre(s)"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre(s)"
+                    android:inputType="textCapWords"
                     android:id="@+id/etFirstName"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <EditText
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:hint="Ap. Paterno"
-                        android:id="@+id/etLastName"/>
-                    <EditText
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Apellido paterno"
+                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:hint="Ap. paterno"
+                            android:id="@+id/etLastName"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:hint="Ap. Materno"
-                        android:id="@+id/etMotherMaidenName"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Apelluido materno"
+                            android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:hint="Ap. materno"
+                            android:id="@+id/etMotherMaidenName"/>
+                    </LinearLayout>
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de usuario"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre de Usuario"
+                    android:hint="Nombre de usuario"
                     android:id="@+id/etPersonUsername"/>
             </LinearLayout>
         </LinearLayout>
@@ -129,30 +184,56 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Calle y número"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
                     android:hint="Calle y número"
                     android:id="@+id/etStreet"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Colonia"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
                     android:hint="Colonia"
                     android:id="@+id/etNeighborhood"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Estado"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spState"></Spinner>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Municipio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spTown"></Spinner>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Código postal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Estado"
-                    android:id="@+id/etState"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Municipio"
-                    android:id="@+id/etTown"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="CP"
+                    android:inputType="number"
+                    android:hint="Código postal"
                     android:id="@+id/etPostalCode"/>
             </LinearLayout>
         </LinearLayout>
@@ -172,10 +253,15 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Correo eléctronico"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Correo Eléctronico"
+                    android:hint="Correo eléctronico"
                     android:inputType="textEmailAddress"
                     android:id="@+id/etEmail"/>
             </LinearLayout>
@@ -196,6 +282,11 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Teléfono"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,6 +294,11 @@
                     android:inputType="phone"
                     android:phoneNumber="true"
                     android:id="@+id/etTelephone"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Celular"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

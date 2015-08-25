@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.json.JSONObject;
+
+import Models.User;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -23,12 +22,13 @@ public class LoginActivity extends ActionBarActivity {
     Button btnLogin;
     User user;
 
-    private static final String LOGIN_URL = "http://192.168.15.125/~Cesar/carservice/public/login/";
+    private String LOGIN_URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        LOGIN_URL = getString(R.string.base_url) + getString(R.string.login_url);
         etUsername = (EditText)findViewById(R.id.etUserName);
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -42,6 +42,12 @@ public class LoginActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+    }
+
     public boolean validate()
     {
         if (etUsername.getText().toString().trim().equals("")) {
@@ -50,7 +56,7 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         if (etPassword.getText().toString().trim().equals("")) {
-            Toast.makeText(getBaseContext(), "Favor de escribir el nombre de usuario", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Favor de escribir el password", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -71,20 +77,14 @@ public class LoginActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
 
     private class LoginAsyncTask extends AsyncTask<String, String, String>  {
-
-        protected void onPreExecute() {
-        }
-
+        @Override
         protected String doInBackground(String... params) {
-            //obtnemos usr y pass
             String username = etUsername.getText().toString();
             String password = etPassword.getText().toString();
             JSONObject jsonObject = new JSONObject();
@@ -95,29 +95,22 @@ public class LoginActivity extends ActionBarActivity {
                 e.getStackTrace();
             }
             return HttpAux.httpPostRequest(params[0], jsonObject);
-
         }
 
-        /*Una vez terminado doInBackground segun lo que halla ocurrido
-        pasamos a la sig. activity
-        o mostramos error*/
+        @Override
         protected void onPostExecute(String result) {
             try {
                 JSONObject jsonResult = new JSONObject(result);
-                if (jsonResult.has("success")){
-                    if (jsonResult.getInt("success") == 1 && jsonResult.has("user")){
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                        user = objectMapper.readValue(jsonResult.getJSONObject("user").toString(), User.class);
-                        Intent i = new Intent(getBaseContext(), MenuActivity.class);
-                        i.putExtra("user", user);
-                        startActivity(i);
-                    } else {
-                        Toast.makeText(getBaseContext(), "Nombre de Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
-                    }
+                if (jsonResult.getBoolean("success")){
+                    int userId = jsonResult.getInt("user_id");
+                    Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                    intent.putExtra("userId", userId);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getBaseContext(), jsonResult.getString("msj"), Toast.LENGTH_LONG).show();
                 }
             }catch (Exception e){
-                Toast.makeText(getBaseContext(), "Fallo la conexión, vuelve a intentar", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), result + "\n" + e.getMessage(), Toast.LENGTH_LONG).show();
                 e.getStackTrace();
             }
         }

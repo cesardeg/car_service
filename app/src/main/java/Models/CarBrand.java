@@ -1,4 +1,4 @@
-package com.example.cesar.carservice;
+package Models;
 
 /**
  * Created by Cesar on 11/08/15.

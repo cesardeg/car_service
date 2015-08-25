@@ -11,15 +11,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import Models.CarOwnerItem;
+
 /**
  * Created by Cesar on 10/08/15.
  */
 public class CarOwnerAdapter extends BaseAdapter {
 
-    List<CarOwner> carOwners;
+    List<CarOwnerItem> carOwners;
     Context context;
 
-    public CarOwnerAdapter(List<CarOwner> list, Context context)
+    public CarOwnerAdapter(List<CarOwnerItem> list, Context context)
     {
         carOwners = list;
         this.context = context;
@@ -56,17 +58,13 @@ public class CarOwnerAdapter extends BaseAdapter {
         TextView carowner_address = (TextView)view.findViewById(R.id.txtCarOwnerAddressItem);
         ImageView carownerImg = (ImageView) view.findViewById(R.id.imgCarOwnerItem);
 
-        CarOwner carOwner = carOwners.get(position);
+        CarOwnerItem carOwner = carOwners.get(position);
 
-        int imgId = carOwner.getType().equals("Person") ?
+        int imgId = carOwner.type.equals("Person") ?
                 R.drawable.ic_person: R.drawable.ic_business ;
-        String name = carOwner.getType().equals("Person") ?
-                carOwner.getFirst_name() + " " + carOwner.getLast_name(): carOwner.getBusiness_name();
 
-        String address = carOwner.getNeighborhood() + ", " + carOwner.getTown();
-
-        carowner_name.setText(name);
-        carowner_address.setText(address);
+        carowner_name.setText(carOwner.name);
+        carowner_address.setText(carOwner.address);
         carownerImg.setImageResource(imgId);
 
         return view;

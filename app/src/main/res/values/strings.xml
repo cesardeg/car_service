@@ -1,18 +1,32 @@
 <resources>
     <string name="app_name">Car Service</string>
-    <string name="client_id">Car Service</string>
+    <string name="base_url">http://192.168.15.127/~Cesar/carservice/public/</string>
+    <string name="login_url">login/</string>
+    <string name="user_url">user/</string>
+    <string name="carowner_url">carowner/</string>
+    <string name="carbrands_url">carbrands/</string>
+    <string name="carmodels_url">carmodels/</string>
+    <string name="states_url">states/</string>
+    <string name="towns_url">towns/</string>
+    <string name="findcarid_url">findcarid/</string>
+    <string name="car_url">car/</string>
+    <string name="createserviceorder_url">createserviceorder/</string>
+    <string name="serviceorder_url">serviceorder/</string>
+    <string name="updateserviceorder_url">updateserviceorder/</string>
+    <string name="closeserviceorder_url">closeserviceorder/</string>
+    <string name="createservicediagnostic_url">createservicediagnostic/</string>
+    <string name="servicediagnostic_url">servicediagnostic/</string>
+    <string name="updateservicediagnostic_url">updateservicediagnostic/</string>
+    <string name="closeservicediagnostic_url">closeservicediagnostic/</string>
+    <string name="createservicedelivery_url">createservicedelivery/</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_menu">Menu Principal</string>
+    <string name="title_activity_menu">Menú</string>
     <string name="title_activity_list_car_owners">Clientes</string>
     <string name="title_activity_manipulate_car_owner">Agregar Cliente</string>
     <string name="title_activity_show_car_owner">Cliente</string>
-    <string name="title_activity_show_car">Vehiculo</string>
-    <string name="title_activity_manipulate_car">Agregar Vehiculo</string>
-    <string name="title_activity_order_service1">Orden de Servicio</string>
-    <string name="title_activity_order_service2">OrderService2Activity</string>
-    <string name="title_activity_order_service_diagnostic">Diagnostico</string>
-    <string name="title_activity_order_service_quotes">Presupuesto</string>
+    <string name="title_activity_show_car">Vehículo</string>
+    <string name="title_activity_manipulate_car">Agregar Vehículo</string>
     <string name="title_activity_read_tag">Leer TAG</string>
     <string-array name="typeCarOwner_arrays">
         <item>Selecciona Tipo de Cliente</item>
@@ -22,9 +36,10 @@
     <string-array name="typeOrders">
         <item>Selecciona tipo de Servicio</item>
         <item>Mantenimiento</item>
-        <item>Revisión de Falla</item>
-        <item>Diagnóstico General</item>
+        <item>Revision de Falla</item>
+        <item>Diagnostico General</item>
     </string-array>
-    <string name="title_activity_order_service3">Diagnostico</string>
-    <string name="title_activity_order_service4">OrderService4Activity</string>
+    <string name="title_activity_service_order">Orden de Servicio</string>
+    <string name="title_activity_service_order_levels">Kilometraje y Niveles</string>
+    <string name="title_activity_service_diagnostic">Diagnóstico</string>
 </resources>

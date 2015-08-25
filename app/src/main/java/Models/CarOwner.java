@@ -1,4 +1,4 @@
-package com.example.cesar.carservice;
+package Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class CarOwner implements Serializable {
     @JsonIgnoreProperties(ignoreUnknown = true)
-    private int id, client_id;
+    public int id;
     private String type, business_name, first_name, last_name, mother_maiden_name, username, password,
             street, neighborhood, state, town, postal_code, rfc, email, phone_number, mobile_phone_number;
 
@@ -17,9 +17,8 @@ public class CarOwner implements Serializable {
 
     }
 
-    public CarOwner(int id, String type, String business_name, String first_name, String last_name, String mother_maiden_name, String username, String password, int client_id,
+    public CarOwner(String type, String business_name, String first_name, String last_name, String mother_maiden_name, String username, String password,
                     String street, String neighborhood, String state, String town, String postal_code, String rfc, String email, String phone_number, String mobile_phone_number) {
-        this.id = id;
         this.type = type;
         this.business_name = business_name;
         this.first_name = first_name;
@@ -36,16 +35,7 @@ public class CarOwner implements Serializable {
         this.mobile_phone_number = mobile_phone_number;
         this.username = username;
         this.password = password;
-        this.client_id = client_id;
 
-    }
-
-    public int getId(){
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getType() {
@@ -166,14 +156,6 @@ public class CarOwner implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getClient_id() {
-        return client_id;
-    }
-
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
     }
 
     public String getUsername() {

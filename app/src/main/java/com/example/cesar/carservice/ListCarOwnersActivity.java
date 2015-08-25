@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,47 +13,48 @@ import android.widget.ListView;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import Models.CarOwnerItem;
 
 
 public class ListCarOwnersActivity extends ActionBarActivity {
 
-    private static final String URL = "http://192.168.15.125/~Cesar/carservice/public/listcarowners/";
+    String URL;
     ListView lv;
-    List<CarOwner> carOwners;
-    User user;
+    List<CarOwnerItem> carOwners;
+    int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_car_owners);
 
-        user = (User)getIntent().getExtras().get("user");
+        URL = getString(R.string.base_url) + "listcarowners/";
+        if (getIntent().getExtras().containsKey("userId"))
+            userId = getIntent().getExtras().getInt("userId");
         lv = (ListView)findViewById(R.id.lvCarOwners);
-        carOwners = new ArrayList<CarOwner>();
-        new HttpAsyncTask().execute(URL + "/" + user.client_id + "/");
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getBaseContext(), ShowCarOwnerActivity.class);
-                intent.putExtra("carOwner", carOwners.get(position));
-                intent.putExtra("user", user);
+                intent.putExtra("carOwnerId", carOwners.get(position).id);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
+    }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        carOwners = new ArrayList<CarOwnerItem>();
+        new HttpAsyncTask().execute(URL + "/" + userId + "/");
     }
 
     @Override
@@ -75,7 +75,7 @@ public class ListCarOwnersActivity extends ActionBarActivity {
         switch (id){
             case R.id.action_add_carowner:
                 Intent intent = new Intent(getBaseContext(), ManipulateCarOwnerActivity.class);
-                intent.putExtra("user", user);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
                 break;
             case R.id.action_search_carowner:
@@ -85,51 +85,12 @@ public class ListCarOwnersActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static String httpRequest(String url){
-        InputStream inputStream = null;
-        String result = "";
-        try {
-            // 1. create HttpClient
-            HttpClient httpclient = new DefaultHttpClient();
-            // 2. create POST request to the given URL
-            HttpGet httpGet = new HttpGet(url);
-            HttpResponse httpResponse = httpclient.execute(httpGet);
-            // 8. receive response as inputStream
-            inputStream = httpResponse.getEntity().getContent();
-            // 9. convert inputstream to string
-            result = convertStreamToString(inputStream);
 
-        } catch (Exception e) {
-            Log.d("InputStream", e.getLocalizedMessage());
-        }
-        // 11. return result
-        return result;
-    }
-
-    private static String convertStreamToString(InputStream is) throws IOException {
-        if (is != null) {
-            StringBuilder sb = new StringBuilder();
-            String line;
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line).append("\n");
-                }
-            }
-            finally {
-                is.close();
-            }
-            return sb.toString();
-        } else {
-            return "";
-        }
-    }
 
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
-
-            return httpRequest(urls[0]);
+            return HttpAux.httpGetRequest(urls[0]);
         }
         // onPostExecute displays the results of the AsyncTask.
         @Override
@@ -140,7 +101,7 @@ public class ListCarOwnersActivity extends ActionBarActivity {
                 objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    CarOwner carOwner = objectMapper.readValue(jsonObject.toString(), CarOwner.class);
+                    CarOwnerItem carOwner = objectMapper.readValue(jsonObject.toString(), CarOwnerItem.class);
                     carOwners.add(carOwner);
                 }
                 CarOwnerAdapter adapter = new CarOwnerAdapter(carOwners, getBaseContext());

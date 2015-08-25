@@ -1,9 +1,9 @@
-package com.example.cesar.carservice;
+package Models;
 
 /**
  * Created by Cesar on 11/08/15.
  */
-public class CarLine {
+public class CarModel {
     public int id, car_brand_id;
     public String name;
 }

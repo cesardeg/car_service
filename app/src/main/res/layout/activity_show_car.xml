@@ -44,7 +44,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nombre Propietario"
+                        android:text="Nombre del propietario"
                         android:textAppearance="?android:attr/textAppearanceSmall"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Línea"
+                        android:text="Modelo"
                         android:textAppearance="?android:attr/textAppearanceSmall"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -92,11 +92,11 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_marginBottom="10dp"
                         android:textColor="#111111"
-                        android:id="@+id/txtCarLine"/>
+                        android:id="@+id/txtCarModel"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Modelo"
+                        android:text="Año"
                         android:textAppearance="?android:attr/textAppearanceSmall"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_marginBottom="10dp"
                         android:textColor="#111111"
-                        android:id="@+id/txtCarModel"/>
+                        android:id="@+id/txtCarYear"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Número de Serie"
+                        android:text="Número de serie"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_marginBottom="10dp"
                         android:textColor="#111111"

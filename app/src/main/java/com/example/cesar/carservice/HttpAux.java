@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -53,11 +54,11 @@ public class HttpAux {
             // 3. convert JSONObject to JSON to String
             json = jsonObject.toString();
             // 4. set json to StringEntity
-            StringEntity se = new StringEntity(json);
+            StringEntity se = new StringEntity(json, HTTP.UTF_8);
             // 5. set httpPost Entity
             httpPost.setEntity(se);
             // 6. Set some headers to inform server about the type of the content
-            //httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
             // 7. Execute POST request to the given URL
             HttpResponse httpResponse = httpclient.execute(httpPost);

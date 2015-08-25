@@ -3,13 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.cesar.carservice.ShowCarActivity">
     <item
-        android:id="@+id/action_edit_car"
-        android:title="Editar"
-        android:icon="@drawable/ic_edit"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_orderservice"
-        android:title="Orden de Servicio"
-        android:icon="@drawable/ic_orderservice"
+        android:id="@+id/action_refresh_car"
+        android:title="Refrescar"
+        android:icon="@drawable/ic_refresh"
         app:showAsAction="ifRoom" />
 </menu>
