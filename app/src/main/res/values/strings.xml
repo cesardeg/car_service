@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Car Service</string>
-    <string name="base_url">http://192.168.15.127/~Cesar/carservice/public/</string>
+    <string name="app_name">Car Services</string>
+    <!--<string name="base_url">http://192.168.15.116/~Cesar/carservices-server/public/</string>-->
+    <string name="base_url">http://carservices.hqhrfid.com/</string>
     <string name="login_url">login/</string>
     <string name="user_url">user/</string>
     <string name="carowner_url">carowner/</string>
@@ -11,14 +12,16 @@
     <string name="findcarid_url">findcarid/</string>
     <string name="car_url">car/</string>
     <string name="createserviceorder_url">createserviceorder/</string>
-    <string name="serviceorder_url">serviceorder/</string>
-    <string name="updateserviceorder_url">updateserviceorder/</string>
-    <string name="closeserviceorder_url">closeserviceorder/</string>
+    <string name="inventory_url">inventoryoperator/</string>
+    <string name="closeinventory_url">closeinventory/</string>
     <string name="createservicediagnostic_url">createservicediagnostic/</string>
     <string name="servicediagnostic_url">servicediagnostic/</string>
     <string name="updateservicediagnostic_url">updateservicediagnostic/</string>
     <string name="closeservicediagnostic_url">closeservicediagnostic/</string>
     <string name="createservicedelivery_url">createservicedelivery/</string>
+    <string name="carconfiguration">carconfiguration/</string>
+    <string name="setremind">setremind/</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">Menú</string>
@@ -27,7 +30,7 @@
     <string name="title_activity_show_car_owner">Cliente</string>
     <string name="title_activity_show_car">Vehículo</string>
     <string name="title_activity_manipulate_car">Agregar Vehículo</string>
-    <string name="title_activity_read_tag">Leer TAG</string>
+    <string name="title_activity_read_tag">Buscar Vehículo</string>
     <string-array name="typeCarOwner_arrays">
         <item>Selecciona Tipo de Cliente</item>
         <item>Persona</item>
@@ -36,10 +39,24 @@
     <string-array name="typeOrders">
         <item>Selecciona tipo de Servicio</item>
         <item>Mantenimiento</item>
-        <item>Revision de Falla</item>
-        <item>Diagnostico General</item>
+        <item>Revisión de Falla</item>
+        <item>Diagnóstico General</item>
+
+    </string-array>
+    <string-array name="timeUnits">
+        <item>Segundos</item>
+        <item>Minutos</item>
+        <item>Horas</item>
+        <item>Días</item>
+        <item>Semanas</item>
+        <item>Meses</item>
+        <item>Años</item>
     </string-array>
     <string name="title_activity_service_order">Orden de Servicio</string>
     <string name="title_activity_service_order_levels">Kilometraje y Niveles</string>
     <string name="title_activity_service_diagnostic">Diagnóstico</string>
+    <string name="title_activity_configuration_car">Configuración</string>
+    <string name="title_activity_configuration_kmcapture">Configuración</string>
+    <string name="title_activity_configuration_sheduled_services">Configuración</string>
+    <string name="title_activity_gallery">Fotos</string>
 </resources>

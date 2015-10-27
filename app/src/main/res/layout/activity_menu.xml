@@ -14,14 +14,19 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clientes"
-            android:id="@+id/btnCarOwners" />
-
+            android:text="Alta Cliente"
+            android:id="@+id/btnAddCarOwner"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Leer TAG"
-            android:layout_marginTop="20dp"
+            android:text="Alta Vehículo"
+            android:id="@+id/btnAddCar"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vehículo"
+            android:layout_marginTop="10dp"
             android:id="@+id/btnReadTAG" />
     </LinearLayout>
 
@@ -32,7 +37,8 @@
         android:text="Bienvenido"
         android:id="@+id/txtWelcome"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,5 +47,14 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/txtWelcome"
         android:id="@+id/txtName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Taller: Nombre taller"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtName"
+        android:id="@+id/txtWorkshop"/>
 
 </RelativeLayout>

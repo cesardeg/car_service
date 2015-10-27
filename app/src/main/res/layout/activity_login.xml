@@ -18,6 +18,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:hint="username"
             android:id="@+id/etUserName"
             android:gravity="center"/>

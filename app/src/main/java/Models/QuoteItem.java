@@ -7,16 +7,6 @@ import java.io.Serializable;
  */
 public class QuoteItem implements Serializable {
     public String description;
-    public float amount, subtotal;
-
-    public  QuoteItem() {
-
-    }
-
-    public QuoteItem(float amount, String description, float subtotal) {
-        this.amount = amount;
-        this.description = description;
-        this.subtotal = subtotal;
-    }
-
+    public float amount;
+    public int id;
 }

@@ -1,188 +1,278 @@
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    tools:context="com.example.cesar.carservice.ManipulateCarOwnerActivity">
-    <LinearLayout
+    android:layout_height="match_parent">-->
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="16dp"
+        tools:context="com.example.cesar.carservice.ManipulateCarOwnerActivity">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_photo_camera"
-                android:layout_marginRight="16dp"/>
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_photo"
-                    android:id="@+id/imgManipulateCar"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tomar foto"
-                    android:id="@+id/btnChangeImageCar"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_car"
-                android:layout_marginRight="16dp"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="EPC"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="EPC"
-                    android:inputType="text"
-                    android:id="@+id/etEPC" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Status"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/txtStatus"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Leer TAG"
-                    android:id="@+id/btnReadTAGManipulateCar"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Marca"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <Spinner
-                    android:id="@+id/spCarBrand"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Marca"
-                    android:id="@+id/etCarBrand"
-                    android:inputType="textCapWords"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Modelo"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <Spinner
-                    android:id="@+id/spCarModel"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Modelo"
-                    android:id="@+id/etCarModel"
-                    android:inputType="textCapWords"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Año"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Año"
-                    android:id="@+id/etCarYear"
-                    android:inputType="number"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Color"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Color"
-                    android:id="@+id/etCarColor"
-                    android:inputType="textCapWords"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Número de Serie"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Número de Serie"
-                    android:id="@+id/etSerialNumber"
-                    android:inputType="text"
-                    android:layout_marginBottom="10dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Kilometraje"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_tag"
+                    android:layout_marginRight="16dp"/>
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp">
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:hint="Kilometraje "
-                        android:inputType="number"
-                        android:id="@+id/etKm" />
+                    android:orientation="vertical">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:textAppearanceMedium"
-                        android:text=" KM "
-                        android:textColor="#111111"/>
+                        android:text="Número de tag"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Número de tag"
+                        android:inputType="number"
+                        android:id="@+id/etTagNumber"/>
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal"
+                android:id="@+id/viewUsername">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_person"
+                    android:layout_marginRight="16dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Propietario"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="nombre de usuario"
+                        android:inputType="text"
+                        android:id="@+id/etUsernameOwner"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_photo_camera"
+                    android:layout_marginRight="16dp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/imgCar"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_no_image"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar foto"
+                        android:id="@+id/btnTakePicture"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_car"
+                    android:layout_marginRight="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <!--RFID  Change Visibility to "view" to implement-->
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="número de tag"
+                        android:inputType="text"
+                        android:id="@+id/etEPC"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/txtStatus"
+                        android:visibility="gone"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Leer TAG"
+                        android:id="@+id/btnReadTAG"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone"/>
+                    <!--RFID-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marca"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <Spinner
+                        android:id="@+id/spCarBrand"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="marca"
+                        android:id="@+id/etCarBrand"
+                        android:inputType="textCapWords"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modelo"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <Spinner
+                        android:id="@+id/spCarModel"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="modelo"
+                        android:id="@+id/etCarModel"
+                        android:inputType="textCapWords"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Año"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="año"
+                        android:id="@+id/etCarYear"
+                        android:inputType="number"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Color"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="color"
+                        android:id="@+id/etCarColor"
+                        android:inputType="textCapWords"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Número de Serie"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="número de Serie"
+                        android:id="@+id/etSerialNumber"
+                        android:inputType="textCapCharacters"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Número de placas"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="número de placas"
+                        android:id="@+id/etLicensePlate"
+                        android:inputType="textCapCharacters"
+                        android:layout_marginBottom="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kilometraje"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:hint="Kilometraje "
+                            android:inputType="number"
+                            android:id="@+id/etKm" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:textAppearanceMedium"
+                            android:text=" KM "
+                            android:textColor="#111111"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar Vehiculo"
+                android:id="@+id/btnSaveCar"/>
         </LinearLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guardar Vehiculo"
-            android:id="@+id/btnSaveCar"/>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/progress" >
+    </ProgressBar>
+</RelativeLayout>

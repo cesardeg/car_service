@@ -136,7 +136,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Dirección"
-                    android:id="@+id/etPickUpAddress" />
+                    android:id="@+id/etPickUpAddress"
+                    android:inputType="textCapWords"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,41 +161,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Dirección"
-                    android:id="@+id/etDeliverAddress" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_photo_camera"
-                android:layout_marginRight="16dp"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fotos Exterior"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fotos Interior"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fotos Motor"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fotos Porta Equipaje"/>
+                    android:id="@+id/etDeliverAddress"
+                    android:inputType="textCapWords"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -205,14 +173,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Continuar despúes"
-                android:id="@+id/btnLaterServiceOrder"/>
+                android:text="Cancelar"
+                android:id="@+id/btnCancel"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Siguiente"
-                android:id="@+id/btnServiceOrderNext"/>
+                android:text="Guardar"
+                android:id="@+id/btnSave"/>
         </LinearLayout>
 
     </LinearLayout>

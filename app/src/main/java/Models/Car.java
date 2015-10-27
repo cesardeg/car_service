@@ -6,6 +6,6 @@ import java.io.Serializable;
  * Created by Cesar on 10/08/15.
  */
 public class Car implements Serializable {
-    public String epc, serial_number, color, ownerName, brand, model;
-    public int id, car_owner_id, year, notification_time, km, service_status;
+    public String tag, serial_number, color, brand, model, photo, owner, license_plate;
+    public int id, year, km, service_order_id;
 }
